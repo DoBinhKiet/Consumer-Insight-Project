@@ -16,7 +16,7 @@ The hypothetical client is **Techcombank**, one of Vietnam's leading private com
 │   ├── phase3_step2_regression.py   # logistic regression, marginal effects, decision tree, segment profiling
 │   └── phase3_step3_excel.py        # styled Excel workbook output
 ├── outputs/
-│   ├── Techcombank_Digital_Adoption_Report.html    # the main client-facing report
+│   |
 │   └── Techcombank_Digital_Adoption_Analysis.xlsx  # analytical workbook (3 sheets)
 └── README.md
 ```
@@ -80,41 +80,4 @@ Three findings that matter commercially for Techcombank:
 
 **Model performance:** logistic regression AUC = 0.93, pseudo R² = 0.37. Decision tree AUC = 0.90 for comparison.
 
----
 
-## Report structure
-
-The HTML report (open in any browser) has 6 sections:
-
-1. Executive summary
-2. Market context
-3. Key insights (3 insight cards with behavioral science framing)
-4. Commercial recommendations (4 prioritised recommendations)
-5. Methodological note (causal identification, sample limitations)
-6. What this analysis cannot answer (research design reflection)
-
----
-
-## Skills demonstrated
-
-This was intentionally designed to show specific skills for a market research consulting role:
-
-- **SQL** — all demographic breakdowns run as SQL queries via SQLite before touching pandas
-- **Python** — pandas, statsmodels, scikit-learn, openpyxl throughout
-- **Excel** — styled 3-sheet workbook with conditional formatting, generated programmatically
-- **Causal inference** — logistic regression with average marginal effects; explicit discussion of endogeneity and identification limits in the methodological note
-- **Research fundamentals** — multi-source data strategy, gap analysis, primary research proposal
-- **Machine learning** — decision tree classifier with feature importance, AUC comparison against logistic regression
-- **Behavioral science** — status quo bias, trust transfer, loss aversion applied to each insight
-- **Clear communication** — conclusions-first report structure, client-ready tone throughout
-
----
-
-## About me
-
-Final-year Economics major with Applied Mathematics minor at Fulbright University Vietnam. GPA 3.72. Graduating June 2026.
-
-I'm interested in quantitative consumer research and the intersection of behavioral economics and commercial decision-making. This project was built independently over ~3 weeks using only publicly available data.
-
-Contact: dobinhkiet2004@gmail.com
-LinkedIn: linkedin.com/in/kietdobinh1622004
