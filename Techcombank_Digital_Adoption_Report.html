@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Payment Adoption in Vietnam — Techcombank Consumer Insight Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --tcb-red: #C8102E;
+    --tcb-dark: #1A1A2E;
+    --tcb-mid: #2D2D44;
+    --ink: #1C1C1C;
+    --ink-2: #3D3D3D;
+    --ink-3: #6B6B6B;
+    --rule: #D8D4CC;
+    --bg: #FAF9F6;
+    --bg-2: #F2F0EA;
+    --bg-card: #FFFFFF;
+    --accent-1: #C8102E;
+    --accent-2: #0F6E56;
+    --accent-3: #185FA5;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --display: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ── Page layout ── */
+  .page { max-width: 820px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+  /* ── Cover ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 5rem;
+  }
+
+  .cover-top { display: flex; justify-content: space-between; align-items: flex-start; }
+
+  .logo-block .logo-text {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tcb-red);
+    font-weight: 500;
+  }
+
+  .logo-block .logo-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    margin-top: 4px;
+  }
+
+  .cover-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    text-align: right;
+    line-height: 1.9;
+    letter-spacing: 0.04em;
+  }
+
+  .cover-body { padding: 5rem 0 3rem; }
+
+  .cover-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1.5rem;
+  }
+
+  .cover-title {
+    font-family: var(--display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--tcb-dark);
+    margin-bottom: 1.5rem;
+    max-width: 620px;
+  }
+
+  .cover-title em {
+    font-style: italic;
+    color: var(--tcb-red);
+  }
+
+  .cover-subtitle {
+    font-size: 1.05rem;
+    color: var(--ink-2);
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  .cover-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--tcb-red);
+    margin: 2.5rem 0;
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .cover-client {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .cover-client strong {
+    color: var(--ink);
+    font-weight: 500;
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Section structure ── */
+  .section { margin-bottom: 4.5rem; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tcb-red);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: var(--display);
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--tcb-dark);
+    line-height: 1.25;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Body text ── */
+  p { margin-bottom: 1.2rem; color: var(--ink-2); font-weight: 300; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Pull quote / callout ── */
+  .pullquote {
+    border-left: 3px solid var(--tcb-red);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--bg-2);
+  }
+
+  .pullquote p {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--tcb-dark);
+    font-weight: 400;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Stat bar ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 2rem 0;
+  }
+
+  .stat-cell {
+    background: var(--bg-card);
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--tcb-dark);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-num.red { color: var(--tcb-red); }
+  .stat-num.green { color: var(--accent-2); }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  /* ── Insight cards ── */
+  .insight-card {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .insight-header {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .insight-num {
+    width: 56px;
+    min-width: 56px;
+    background: var(--tcb-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .insight-title-block {
+    padding: 1rem 1.25rem;
+    flex: 1;
+  }
+
+  .insight-tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.35rem;
+  }
+
+  .insight-headline {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tcb-dark);
+    line-height: 1.4;
+  }
+
+  .insight-body { padding: 1.25rem 1.5rem; }
+
+  .insight-body p { font-size: 0.95rem; line-height: 1.75; }
+
+  .insight-finding {
+    background: var(--bg-2);
+    border-top: 1px solid var(--rule);
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .finding-chip {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-2);
+    letter-spacing: 0.04em;
+  }
+
+  .finding-chip strong {
+    color: var(--tcb-dark);
+    font-weight: 500;
+  }
+
+  .so-what-block {
+    border-top: 2px solid var(--tcb-red);
+    padding: 1rem 1.5rem;
+    background: #FFF8F8;
+  }
+
+  .so-what-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tcb-red);
+    margin-bottom: 0.4rem;
+  }
+
+  .so-what-block p {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* ── Recommendation cards ── */
+  .rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+
+  .rec-card {
+    border: 1px solid var(--rule);
+    background: var(--bg-card);
+    padding: 1.25rem;
+  }
+
+  .rec-number {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--tcb-red);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .rec-title {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--tcb-dark);
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+
+  .rec-body {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── Data table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  thead th {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--tcb-dark);
+    padding: 0.65rem 0.85rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  tbody tr:nth-child(even) { background: var(--bg-2); }
+  tbody tr:nth-child(odd)  { background: var(--bg-card); }
+
+  tbody td {
+    padding: 0.6rem 0.85rem;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--rule);
+    font-weight: 300;
+  }
+
+  tbody td:first-child { font-weight: 400; color: var(--ink); }
+  tbody td.num { font-family: var(--mono); font-size: 0.85rem; }
+  tbody td.highlight { color: var(--accent-2); font-weight: 500; }
+  tbody td.lowlight  { color: var(--tcb-red); font-weight: 500; }
+
+  /* ── Inline bar ── */
+  .bar-wrap { display: flex; align-items: center; gap: 10px; }
+  .bar-track { flex: 1; height: 6px; background: var(--bg-2); border-radius: 0; }
+  .bar-fill  { height: 6px; border-radius: 0; }
+
+  /* ── Method note ── */
+  .method-block {
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--tcb-dark);
+    padding: 1.5rem 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .method-block p { font-size: 0.875rem; line-height: 1.75; }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    line-height: 2;
+  }
+
+  .footer-right {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    text-align: right;
+  }
+
+  /* ── Behaviour framework box ── */
+  .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+
+  .framework-card {
+    border-top: 2px solid var(--rule);
+    padding: 1rem 0.75rem 0;
+  }
+
+  .framework-card.a { border-color: var(--tcb-red); }
+  .framework-card.b { border-color: var(--accent-2); }
+  .framework-card.c { border-color: var(--accent-3); }
+
+  .framework-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.4rem;
+  }
+
+  .framework-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--tcb-dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .framework-card p {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  @media print {
+    body { font-size: 14px; }
+    .cover { min-height: auto; page-break-after: always; }
+    .section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ COVER ══════════════════════════════════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-top">
+      <div class="logo-block">
+        <div class="logo-text">Consumer Insight Report</div>
+        <div class="logo-sub">Prepared for Techcombank — Confidential</div>
+      </div>
+      <div class="cover-meta">
+        May 2026<br>
+        Vietnam Market<br>
+        Findex 2021 · n = 998
+      </div>
+    </div>
+
+    <div class="cover-body">
+      <div class="cover-tag">Digital Finance · Adoption Research · Segmentation</div>
+      <h1 class="cover-title">
+        Who is Vietnam's <em>next-wave</em> digital banking customer — and what will move them?
+      </h1>
+      <div class="cover-rule"></div>
+      <p class="cover-subtitle">
+        A logistic regression and segmentation analysis of digital payment adoption among Vietnamese adults, with commercial implications for Techcombank's digital acquisition strategy.
+      </p>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-client">
+        <strong>Hypothetical client</strong>
+        Techcombank<br>
+        Vietnam Technology and Commercial Bank
+      </div>
+      <div class="cover-client" style="text-align:right;">
+        <strong>Data sources</strong>
+        World Bank Global Findex 2021 · n = 998<br>
+        Decision Lab Connected Consumer Q4 2025<br>
+        Decision Lab Financial Decision Journey 2025<br>
+        Decision Lab State of Consumer AI 2025
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ EXECUTIVE SUMMARY ══════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <h2 class="section-title">Executive summary</h2>
+
+    <p>Vietnam's digital payments market is undergoing a structural transition: standalone fintech platforms that led the first wave of adoption are losing penetration, while bank-owned digital platforms are gaining ground. This shift creates a narrow but commercially significant window for Techcombank to accelerate the conversion of its existing customer base into active digital payment users and to acquire the next cohort of adopters before competitor banks do.</p>
+
+    <p>This report analyses individual-level survey data from 998 Vietnamese adults drawn from the World Bank Global Findex 2021 to identify who the next-wave digital adopter is, what predicts adoption, and what that implies for Techcombank's positioning. Three findings are commercially significant.</p>
+
+    <p>First, the principal barrier to digital payment adoption among banked Vietnamese consumers is not digital access — it is behavioural inertia. Among adults who hold a bank account but have not adopted digital payments, 90.8% already use the internet. The obstacle is not infrastructure; it is the absence of a sufficiently compelling trigger to displace the default of cash and passive banking.</p>
+
+    <p>Second, formal saving behaviour is as strong a predictor of digital payment adoption as education level, each raising adoption probability by approximately 12.8 percentage points in a multivariate regression. Techcombank's existing savings account holders are, by the logic of the data, among the highest-propensity next-wave adopters in Vietnam — already in a trust relationship with the institution, and already financially engaged.</p>
+
+    <p>Third, age cohort is a more reliable segmentation axis than geography. Rural adoption (68.1%) outpaces urban adoption (57.5%), and rural location carries no statistically significant effect in the regression model. The 45–54 age band, by contrast, sits at a 59.1% adoption rate — above the median, but significantly below the 83.3% peak recorded among 25–34 year olds. This cohort represents Techcombank's most tractable near-term expansion segment.</p>
+
+    <div class="stat-grid">
+      <div class="stat-cell">
+        <div class="stat-num">60.9%</div>
+        <div class="stat-label">Digital payment adoption rate, Vietnam 2021</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num red">7.6%</div>
+        <div class="stat-label">Banked adults not yet using digital payments</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">90.8%</div>
+        <div class="stat-label">Next-wave segment already using the internet</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num green">0.93</div>
+        <div class="stat-label">Logistic regression AUC — model discrimination</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MARKET CONTEXT ══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <h2 class="section-title">Market context</h2>
+
+    <p>Vietnam's financial inclusion landscape has shifted rapidly over the past decade. Account ownership among adults aged 15 and above reached 87% by 2024, up from 31% in 2014, driven initially by government-led financial inclusion mandates and subsequently by the proliferation of mobile-first fintech platforms including MoMo, ZaloPay, and VNPAY. The Findex 2021 sample used in this analysis records an account ownership rate of 68.5% — consistent with the World Bank's 2021 estimate for Vietnam prior to the post-COVID acceleration.</p>
+
+    <p>Digital payment adoption in this sample stands at 60.9%, identical to digital account ownership, which confirms that the two are effectively coterminous in the Vietnamese context: a consumer who has a digital account is using it. The gap between overall account ownership (68.5%) and digital payment adoption (60.9%) is structurally important — it identifies 7.6% of the adult population as banked but digitally inactive, a segment whose characteristics this report examines in detail.</p>
+
+    <p>The competitive context has shifted since the data was collected. Decision Lab's Connected Consumer tracker for Q4 2024 recorded an 8 percentage point quarter-on-quarter decline in penetration for both MoMo and ZaloPay, while bank-owned digital applications gained across all generational cohorts. By Q4 2025, this trend had consolidated further, with platform preference becoming increasingly intentional rather than habitual. Techcombank has been identified in Decision Lab's Best Future Wealth Bank rankings as a leader in bank satisfaction among Vietnamese consumers — a brand equity position that, if leveraged effectively, provides a meaningful trust advantage in digital acquisition.</p>
+
+    <p>The structural reason banks are gaining ground is visible in Decision Lab's AI and the New Financial Decision Journey research (December 2025, n = 894). At the final stage of the financial decision journey — the moment of commitment — trust-driven channels dominate: official organisation sources are used by 37% of consumers, human advisors by 32%, and close-network word-of-mouth by 27%. Digital tools, by contrast, drop to 21% influence at conversion despite being heavily used at the research and consideration stages. This trust gap between digital research and digital commitment is the central structural problem that any digital payment platform must solve — and it is where established banks hold a structural advantage over standalone fintechs.</p>
+
+    <div class="pullquote">
+      <p>The first wave of digital payment adoption in Vietnam was led by convenience and promotion. The second wave will be decided by trust and institutional credibility — a dynamic that structurally favours established banks over standalone fintechs.</p>
+    </div>
+
+    <p>Non-cash transaction volumes grew at 56.8% year-on-year in the first eleven months of 2024, with QR code payments recording 106.7% volume growth. The macroeconomic trajectory is unambiguous — what remains contested is which institutions will capture the marginal adopter. This report's analysis suggests the answer lies less in product features than in understanding the behavioural profile of the consumer who has not yet converted.</p>
+  </div>
+
+  <!-- ══ KEY INSIGHTS ══════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <h2 class="section-title">Key insights</h2>
+
+    <p>The following three insights are derived from a logistic regression model predicting digital payment adoption (binary outcome) across 998 Vietnamese adults. The model achieves a pseudo R-squared of 0.37 and an AUC of 0.93, indicating strong discriminative power. Marginal effects are reported at the mean — they represent the percentage-point change in adoption probability associated with a unit change in each variable, holding all other variables constant.</p>
+
+    <!-- Insight 1 -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-num">01</div>
+        <div class="insight-title-block">
+          <div class="insight-tag">The access paradox · Behavioural inertia</div>
+          <div class="insight-headline">The next-wave adopter is already online. The barrier is not infrastructure — it is the absence of a compelling first-use trigger.</div>
+        </div>
+      </div>
+      <div class="insight-body">
+        <p>Internet access is the single strongest predictor of digital payment adoption in the regression model, raising adoption probability by 23.5 percentage points (p &lt; 0.001). This finding is internally consistent with the broader literature on digital financial inclusion, which identifies connectivity as a prerequisite for adoption. What makes the Vietnamese data analytically interesting is that the next-wave segment — adults who hold a bank account but have not adopted digital payments — largely clears this connectivity threshold: 90.8% of them are already internet users.</p>
+
+        <p>This means the standard infrastructure framing is insufficient for this segment. The relevant question is not whether these consumers can access digital payments, but why, despite the capability, they have not. The behavioural economics literature offers a precise explanation: status quo bias. When the costs of switching from a familiar behaviour (cash, branch banking) are perceived as greater than the benefits of adopting a new one, consumers default to inaction. The default is the incumbent. In the Vietnamese context, cash and passive banking remain the path of least resistance for a meaningful minority of banked adults.</p>
+
+        <div class="framework-grid">
+          <div class="framework-card a">
+            <div class="framework-label">Framework</div>
+            <div class="framework-name">Status quo bias</div>
+            <p>Consumers overweight the costs of switching relative to the benefits of adoption. The default — cash and passive banking — persists absent a sufficiently salient trigger.</p>
+          </div>
+          <div class="framework-card b">
+            <div class="framework-label">Data signal</div>
+            <div class="framework-name">90.8% internet access</div>
+            <p>Nine in ten next-wave adopters are already online. Connectivity is not the barrier. Habit and perceived switching cost are.</p>
+          </div>
+          <div class="framework-card c">
+            <div class="framework-label">Implication</div>
+            <div class="framework-name">Trigger design</div>
+            <p>Acquisition campaigns targeting this segment must offer a concrete, low-risk first use case — a bill payment, a transfer, a cashback offer — that breaks the inertia without requiring full behavioural commitment.</p>
+          </div>
+        </div>
+      </div>
+      <div class="insight-finding">
+        <div class="finding-chip">Internet marginal effect: <strong>+23.5pp (p&lt;0.001)</strong></div>
+        <div class="finding-chip">Next-wave internet users: <strong>90.8%</strong></div>
+        <div class="finding-chip">Full adopters internet users: <strong>98.7%</strong></div>
+        <div class="finding-chip">Avg age, next-wave: <strong>39.0</strong></div>
+      </div>
+      <div class="so-what-block">
+        <div class="so-what-label">Commercial implication for Techcombank</div>
+        <p>Campaigns built around digital access — device subsidies, data bundles — address the wrong constraint for this segment. The investment case is for behavioural nudges: pre-activated digital accounts, one-tap first transactions, and default enrollment into digital payments for new savings account holders. Reducing the activation cost of the first transaction is more valuable than increasing the perceived benefit of the hundredth. A secondary implication concerns messaging: Decision Lab's Financial Decision Journey research finds that 44% of Vietnamese digital platform users cite privacy and personal data concerns as their primary barrier, and 38% distrust bank-owned digital tools as potentially biased toward the bank's own products. Techcombank's activation campaigns must therefore lead with transparency and consumer benefit — not product cross-sell language — to avoid triggering the institutional distrust that suppresses first-time digital engagement.</p>
+      </div>
+    </div>
+
+    <!-- Insight 2 -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-num">02</div>
+        <div class="insight-title-block">
+          <div class="insight-tag">Trust transfer · Existing relationship capital</div>
+          <div class="insight-headline">Techcombank's savings account holders are its highest-propensity acquisition targets. The trust relationship already exists — it has not been activated digitally.</div>
+        </div>
+      </div>
+      <div class="insight-body">
+        <p>Formal saving behaviour raises digital payment adoption probability by 12.8 percentage points (p &lt; 0.001) — statistically indistinguishable from the marginal effect of moving one full education level (also 12.8 percentage points). This equivalence is analytically significant: it suggests that the financial habit of saving formally with an institution is as predictive of digital adoption as the cognitive capacity associated with formal education. The likely mechanism is trust. A consumer who saves formally has already extended institutional trust — they have demonstrated willingness to commit money to a named financial entity and to accept the risks that entails.</p>
+
+        <p>Digital payment adoption requires an extension of the same trust to a new interface. For a consumer who has no prior banking relationship, this is a two-step trust problem: trust the institution and trust the technology. For an existing savings account holder at Techcombank, only the second step remains. This is the trust transfer mechanism identified in the TAM-TPB literature applied to Vietnamese fintech adoption: prior positive experience with a financial institution reduces the perceived risk of adopting that institution's digital products.</p>
+
+        <p>The segment data confirms this operationally. Among next-wave adopters — those with accounts but without digital payments — 60.5% already save formally. Among full digital adopters, that figure rises to 77.8%. The 17.3 percentage point gap represents the conversion opportunity: consumers already in a formal saving relationship who have not been activated into digital behaviour.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Segment</th>
+              <th>n</th>
+              <th>% formal savers</th>
+              <th>Avg income quintile</th>
+              <th>% internet users</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Next-wave adopters</td>
+              <td class="num">76</td>
+              <td class="num">60.5%</td>
+              <td class="num">2.83</td>
+              <td class="num">90.8%</td>
+            </tr>
+            <tr>
+              <td>Full digital adopters</td>
+              <td class="num">608</td>
+              <td class="num highlight">77.8%</td>
+              <td class="num">3.49</td>
+              <td class="num">98.7%</td>
+            </tr>
+            <tr>
+              <td>Unbanked</td>
+              <td class="num">314</td>
+              <td class="num lowlight">—</td>
+              <td class="num">2.32</td>
+              <td class="num">72.3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-finding">
+        <div class="finding-chip">Saving marginal effect: <strong>+12.8pp (p&lt;0.001)</strong></div>
+        <div class="finding-chip">Education marginal effect: <strong>+12.8pp (p&lt;0.001)</strong></div>
+        <div class="finding-chip">Conversion gap: <strong>17.3pp between segments</strong></div>
+      </div>
+      <div class="so-what-block">
+        <div class="so-what-label">Commercial implication for Techcombank</div>
+        <p>This is a retention and activation play, not a cold acquisition one. Techcombank's CRM database of savings account holders who have not adopted the mobile app constitutes the highest-conversion acquisition pool in its addressable market. A targeted in-app push or in-branch prompt — framed around extending the existing saving relationship into digital payments, not selling a new product — is the most efficient path to next-wave conversion. The trust cost is already paid.</p>
+      </div>
+    </div>
+
+    <!-- Insight 3 -->
+    <div class="insight-card">
+      <div class="insight-header">
+        <div class="insight-num">03</div>
+        <div class="insight-title-block">
+          <div class="insight-tag">Generational habituation · Loss aversion · Segmentation</div>
+          <div class="insight-headline">Age, not geography, is the correct segmentation axis. The 45–54 cohort is the tractable swing segment; rural consumers are already adopting.</div>
+        </div>
+      </div>
+      <div class="insight-body">
+        <p>A persistent assumption in Vietnamese digital finance strategy is that the adoption gap is primarily geographic — that rural consumers represent the frontier of untapped demand. The data challenges this framing directly. Rural consumers in this sample adopt digital payments at 68.1%, a rate that exceeds the urban adoption rate of 57.5% by 10.6 percentage points. In the regression model, rural location carries a coefficient of -0.14 with a p-value of 0.47 — statistically indistinguishable from zero. Geography, controlling for income, education, age, and internet access, does not predict adoption.</p>
+
+        <p>Age does. The regression includes a quadratic age term (age and age-squared) to capture the non-linear relationship between age and adoption, both of which carry significant coefficients. Adoption peaks among the 25–34 cohort at 83.3%, remains relatively high at 71.5% for the 35–44 band, then declines to 59.1% for the 45–54 cohort before collapsing to 18.3% among those aged 55 and above. This pattern is consistent with the behavioural mechanism of generational habituation: consumers whose financial behaviours were formed prior to the digital era face higher switching costs, not because they lack access or capability, but because existing routines carry greater psychological switching costs than they do for younger cohorts.</p>
+
+        <p>Loss aversion amplifies this effect for older consumers. The perceived risks of digital payments — fraud, interface error, loss of control — are weighted more heavily relative to the convenience benefits, consistent with Kahneman and Tversky's finding that losses loom approximately twice as large as equivalent gains in human decision-making.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Age band</th>
+              <th>n</th>
+              <th>Adoption rate</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15–24</td>
+              <td class="num">215</td>
+              <td class="num">62.8%</td>
+              <td><div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:62.8%;background:#378ADD;"></div></div></div></td>
+            </tr>
+            <tr>
+              <td>25–34</td>
+              <td class="num">210</td>
+              <td class="num highlight">83.3%</td>
+              <td><div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:83.3%;background:#1D9E75;"></div></div></div></td>
+            </tr>
+            <tr>
+              <td>35–44</td>
+              <td class="num">246</td>
+              <td class="num">71.5%</td>
+              <td><div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:71.5%;background:#378ADD;"></div></div></div></td>
+            </tr>
+            <tr>
+              <td>45–54</td>
+              <td class="num">154</td>
+              <td class="num">59.1%</td>
+              <td><div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:59.1%;background:#BA7517;"></div></div></div></td>
+            </tr>
+            <tr>
+              <td>55+</td>
+              <td class="num">175</td>
+              <td class="num lowlight">18.3%</td>
+              <td><div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:18.3%;background:#C8102E;"></div></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="insight-finding">
+        <div class="finding-chip">Rural adoption: <strong>68.1%</strong></div>
+        <div class="finding-chip">Urban adoption: <strong>57.5%</strong></div>
+        <div class="finding-chip">Rural regression p-value: <strong>0.47 (not significant)</strong></div>
+        <div class="finding-chip">45–54 adoption: <strong>59.1%</strong></div>
+        <div class="finding-chip">55+ adoption: <strong>18.3%</strong></div>
+      </div>
+      <div class="so-what-block">
+        <div class="so-what-label">Commercial implication for Techcombank</div>
+        <p>Geographic rural expansion is not the priority acquisition strategy — the rural consumer is already converting, likely driven by QR code payment adoption in local commerce. The 45–54 urban professional — likely Techcombank's existing wealth management and mortgage customer base — is the more strategically significant activation target. For this cohort, messaging should foreground security, familiarity, and loss prevention rather than speed and convenience. The 55+ segment requires a fundamentally different product intervention — simplified interfaces, human-assisted onboarding — and should not be addressed through standard digital acquisition campaigns.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RECOMMENDATIONS ═════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <h2 class="section-title">Commercial recommendations</h2>
+
+    <p>The following recommendations are derived directly from the three insights above. They are ordered by estimated conversion yield and implementation feasibility within a 6–12 month horizon.</p>
+
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="rec-number">R1 — Highest priority</div>
+        <div class="rec-title">Activate existing savings account holders via CRM-targeted digital enrollment</div>
+        <p class="rec-body">Identify savings account holders without an active digital payment history in Techcombank's CRM. Deploy a targeted in-app or in-branch activation campaign framed as an extension of the saving relationship, not a new product pitch. The trust cost is already paid; the activation cost is the only remaining barrier. Offer a zero-friction first transaction — a bill payment or peer transfer — with a time-limited cashback incentive to overcome status quo bias.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">R2 — High priority</div>
+        <div class="rec-title">Design default digital enrollment for all new account openings</div>
+        <p class="rec-body">Leverage the evidence on status quo bias by making digital payment enrollment the default — not the opt-in — for new account holders. Pre-activate the Techcombank mobile app at account opening. Require an active opt-out rather than a passive opt-in. This intervention has strong empirical support from the behavioural economics literature on default effects and requires no change to the product itself, only the enrollment architecture. Consumer demand data supports this directly: Decision Lab's Financial Decision Journey research (n = 894) finds that 25% of Vietnamese consumers actively want automated onboarding — seamless form-filling, identity verification, and account activation — as a desired feature from financial platforms. Default enrollment is not only a behavioural design intervention; it is a product capability consumers have explicitly signalled they want.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">R3 — Medium priority</div>
+        <div class="rec-title">Develop a 45–54 cohort positioning strategy anchored in security and familiarity</div>
+        <p class="rec-body">The 45–54 segment is the most tractable near-term expansion cohort — above the 50% adoption threshold, financially engaged, and likely already in a Techcombank relationship. Loss aversion is the primary psychological barrier. Messaging for this cohort should foreground fraud protection, transaction reversibility, and the continuity between digital and branch banking — not speed or novelty. Consider dedicated assisted-digital onboarding in branch for this segment.</p>
+      </div>
+      <div class="rec-card">
+        <div class="rec-number">R4 — Longer-term</div>
+        <div class="rec-title">Reframe geographic expansion strategy away from rural/urban toward education-level targeting</div>
+        <p class="rec-body">Rural adoption already exceeds urban adoption in this sample; geographic expansion is not the frontier. Education level carries a marginal effect of 12.8 percentage points and is the most tractable structural predictor after internet access. Techcombank should consider partnerships with universities, vocational training institutions, and employers offering in-work financial literacy — positioning digital banking as part of financial progression, not as a standalone product.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ METHODOLOGICAL NOTE ════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <h2 class="section-title">Methodological note</h2>
+
+    <p>The analysis uses a binary logistic regression model, which estimates the log-odds of digital payment adoption as a linear function of the predictor variables. The logit link function — log(p/1-p) = Xβ — is the appropriate choice for a binary outcome bounded in [0,1]. Marginal effects are computed at the mean of all covariates using the delta method and are reported in percentage points for interpretability. The model achieves a McFadden pseudo R-squared of 0.37, which indicates a well-fitting model by the conventions of binary choice models (values above 0.20 are considered strong). The AUC of 0.93 confirms high discriminative accuracy.</p>
+
+    <p>A complementary decision tree classifier (maximum depth 4, minimum leaf size 20) was estimated for robustness. It achieves an AUC of 0.90, slightly lower than the logistic regression, consistent with the expectation that parametric models outperform tree methods on smaller samples. The decision tree's feature importance scores assign the largest weight to utility payment behaviour (0.57) and age-squared (0.21), broadly consistent with the regression results.</p>
+
+    <div class="method-block">
+      <p><strong>Causal identification caveat.</strong> The regression identifies correlates of digital payment adoption, not causal drivers in the strict econometric sense. The key identification challenge is reverse causality and omitted variable bias. The variable <em>pay_utilities</em> (paying utilities digitally) carries a negative marginal effect (-5.3pp) in the logistic model, which is economically counterintuitive and likely reflects collinearity with the outcome variable — paying utilities digitally may be a form of digital payment itself, introducing a simultaneity problem. This variable should be treated with caution. Additionally, unobserved variables — smartphone ownership, social network effects, employer payment practices — are likely correlated with both the predictors and the outcome, meaning the coefficients cannot be interpreted as causal estimates without further identification strategy (e.g., an instrumental variable approach using distance to financial infrastructure as an instrument for account ownership).</p>
+      <p style="margin-top:0.9rem;"><strong>Sample limitations.</strong> The Findex 2021 Vietnam module comprises 1,000 observations, of which 998 were usable after dropping two cases with missing education values. This sample is nationally representative by design (World Bank stratified sampling), but the small absolute size means that subgroup analyses — particularly the next-wave segment of 76 respondents — should be interpreted with appropriate uncertainty. Confidence intervals around the segment profile statistics are wide. The data was collected in 2021–2022 and reflects the market prior to the post-COVID acceleration in digital payments; the structural relationships identified are likely to persist, but adoption rate levels will have shifted materially by 2026.</p>
+    </div>
+  </div>
+
+  <!-- ══ REFLECTION NOTE ════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <h2 class="section-title">What this analysis cannot answer</h2>
+
+    <p>This analysis establishes the demographic and behavioural correlates of digital payment adoption with reasonable confidence. What it cannot establish is the attitudinal and perceptual architecture that underlies those correlates — and it is precisely that architecture that a platform like Techcombank would need to understand in order to design effective acquisition communications.</p>
+
+    <p>Specifically, the data cannot answer: why does trust vary across platforms, and what signals drive it? What does the next-wave adopter believe about digital payment security, and how accurate are those beliefs? Which specific friction points — interface complexity, fear of fraud, unfamiliarity with authentication — are most salient? What would a compelling first-use trigger look like for the 45–54 cohort specifically? These are questions that require primary attitudinal research.</p>
+
+    <p>The appropriate next research step is a two-stage mixed-methods study. Stage one would consist of eight to ten in-depth interviews with banked Vietnamese adults aged 35–54 who have not adopted digital payments — exploring mental models, perceived risks, and prior experiences with financial technology. This qualitative phase would generate hypotheses about the specific barriers operating within the next-wave segment. Stage two would field a quantitative survey of approximately 600 respondents, embedding validated attitudinal scales (perceived usefulness, perceived ease of use, trust, and perceived risk drawn from the TAM-TPB framework) alongside platform-level brand perception measures. This would allow Techcombank to understand not only who the next-wave adopter is, but what messaging, product feature, or institutional signal would move them — a question the Findex data, as a cross-sectional behavioural survey, is structurally unable to answer.</p>
+  </div>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════════════════════ -->
+  <div class="footer">
+    <div class="footer-left">
+      Consumer Insight Report — Techcombank Digital Adoption<br>
+      World Bank Global Findex 2021 · Vietnam module · n = 998<br>
+      Analysis conducted May 2026
+    </div>
+    <div class="footer-right">
+      Decision Lab Connected Consumer Q4 2025<br>
+      Decision Lab Financial Decision Journey 2025 · State of Consumer AI 2025<br>
+      Logistic regression · Decision tree · SQLite · Python
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
